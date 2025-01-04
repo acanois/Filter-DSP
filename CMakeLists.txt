@@ -5,6 +5,7 @@ cmake_minimum_required(VERSION 3.24.1)
 # This is the name of your plugin
 # This cannot have spaces (but PRODUCT_NAME can)
 set(PROJECT_NAME "FilterDSP")
+set(SOURCE_ROOT "source")
 
 # Set the plugin formats you'll be building here.
 # Valid formats: AAX Unity VST AU AUv3 Standalone
@@ -66,17 +67,17 @@ target_compile_features("${PROJECT_NAME}" PRIVATE cxx_std_20)
 
 # Manually list all .h and .cpp files for the plugin
 set(SourceFiles
-    Source/PluginEditor.h
-    Source/PluginProcessor.h
-    Source/PluginEditor.cpp
-    Source/PluginProcessor.cpp)
+    ${SOURCE_ROOT}/PluginEditor.h
+    ${SOURCE_ROOT}/PluginProcessor.h
+    ${SOURCE_ROOT}/PluginEditor.cpp
+    ${SOURCE_ROOT}/PluginProcessor.cpp)
 target_sources("${PROJECT_NAME}" PRIVATE ${SourceFiles})
 
 # No, we don't want our source buried in extra nested folders
 set_target_properties("${PROJECT_NAME}" PROPERTIES FOLDER "")
 
 # The Xcode source tree should uhhh, still look like the source tree, yo
-source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/Source PREFIX "" FILES ${SourceFiles})
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/${SOURCE_ROOT} PREFIX "" FILES ${SourceFiles})
 
 # Setup our binary data as a target
 #juce_add_binary_data(Assets SOURCES pamplejuce.png)
