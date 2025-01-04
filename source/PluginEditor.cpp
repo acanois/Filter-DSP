@@ -4,7 +4,7 @@
 
 #include "PluginEditor.h"
 
-PluginEditor::PluginEditor (PluginProcessor& p)
+FiltersEditor::FiltersEditor (FiltersProcessor& p)
     : AudioProcessorEditor (&p), processorRef (p)
 {
     juce::ignoreUnused (processorRef);
@@ -12,14 +12,14 @@ PluginEditor::PluginEditor (PluginProcessor& p)
     setSize (400, 300);
 }
 
-PluginEditor::~PluginEditor() = default;
+FiltersEditor::~FiltersEditor() = default;
 
-void PluginEditor::paint (juce::Graphics& g)
+void FiltersEditor::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll(getLookAndFeel().findColour(juce::ResizableWindow::backgroundColourId));
 }
 
-void PluginEditor::resized()
+void FiltersEditor::resized()
 {
 }

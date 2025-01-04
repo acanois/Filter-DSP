@@ -8,11 +8,11 @@
 
 
 
-class PluginEditor : public juce::AudioProcessorEditor
+class FiltersEditor : public juce::AudioProcessorEditor
 {
 public:
-    explicit PluginEditor (PluginProcessor&);
-    ~PluginEditor() override;
+    explicit FiltersEditor (FiltersProcessor&);
+    ~FiltersEditor() override;
 
     //==============================================================================
     void paint (juce::Graphics&) override;
@@ -21,7 +21,7 @@ public:
 private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
-    PluginProcessor& processorRef;
+    FiltersProcessor& processorRef;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginEditor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FiltersEditor)
 };
