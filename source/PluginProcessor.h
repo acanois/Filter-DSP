@@ -6,6 +6,8 @@
 
 #include <juce_audio_processors/juce_audio_processors.h>
 
+#include <vector>
+
 #if (MSVC)
 #include "ipps.h"
 #endif
@@ -43,6 +45,11 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
 private:
+    std::vector<float> mFilterBuffer;
+
+    bool mHighpass { true };
+    float mCutoff { 1000.f };
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FiltersProcessor)
 };
 
